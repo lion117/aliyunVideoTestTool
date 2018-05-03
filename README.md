@@ -21,7 +21,7 @@ pip uninstall aliyun-python-sdk-vod
 
 # 运行
 - 直接运行 run.py
-- 通过make.bat生成exe文件运行 （需要依赖pyinstaller）
+- 运行run.exe文件运行 
 
 # 配置关键信息
 必须配置Gvar.py里面的参数后, 才能正确上传和分析
