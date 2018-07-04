@@ -2,9 +2,9 @@
 
 import sys, os, time
 
-gAppId = '璇疯緭鍏ユ偍鐨刟ppid'
-gAppKey = '璇疯緭鍏ユ偍鐨刟ppkey'
-gVideoSize = 10 * 1024 * 1024
+gAppId = '请输入您的appid'
+gAppKey = '请输入您的appkey'
+gVideoSize = 1000 * 1024 * 1024
 gTagUrl= "kugou test for url"
 gTagFile= "kugou test for url"
 

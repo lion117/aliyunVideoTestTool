@@ -35,12 +35,15 @@ def UserInterActivate():
         print ""
 
 def Run():
-    # try:
+    if __debug__:
         UserInterActivate()
-    # except Exception, ex:
-    #     print ex
-    #     print u"按回车键继续"
-    #     raw_input()
+    else:
+        try:
+            UserInterActivate()
+        except Exception, ex:
+            print ex
+            print u"按回车键继续"
+            raw_input()
 
 
 

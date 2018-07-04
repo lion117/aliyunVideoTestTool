@@ -89,9 +89,9 @@ def asyVisitApiByFile(tFile):
     if os.path.exists(tFile) is False:
         print(u"not exist %s" % tFile)
         return
-    if os.path.getsize(tFile) > GVar.gVideoSize:
-        print u"文件大小超过限制:%d M   %s" % (os.path.getsize(tFile) / (1024 * 1024), tFile)
-        return
+    # if os.path.getsize(tFile) > GVar.gVideoSize:
+    #     print u"文件大小超过限制:%d M   %s" % (os.path.getsize(tFile) / (1024 * 1024), tFile)
+    #     return
     gTaskMgr.addJob(visitApiByFile,*(tFile,callBackFunc))
 
 
@@ -171,8 +171,17 @@ def parseJson(tJson):
     lLable = u""
     if len(lCategory[u"Categories"]) > 0:
         for itor in lCategory[u"Categories"]:
-            lScore = itor[u"score"]
-            lLable = itor[u"label"]
+            if lScore == u"":
+                lScore = itor[u"score"]
+                lLable = itor[u"label"]
+            else:
+                lTempLab =  itor[u"label"]
+                lTempScore = itor[u"score"]
+                if float(lScore) > float(lTempScore):
+                    continue
+                else:
+                    lScore = lTempScore
+                    lLable = lTempLab
             print lScore, lLable
     lRet = unicode(lCategory[u"Categories"])
     print lRet
@@ -256,5 +265,5 @@ if __name__ == "__main__":
     # MainTest.testAsyFile()
     # MainTest.testGetVideoInfo()
     # MainTest.testAliyunVideoInfo()
-    # gTaskMgr.waitDone()
+    # gTaskUser.waitDone()
     MainTest.testJson()
